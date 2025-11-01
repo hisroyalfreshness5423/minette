@@ -1,297 +1,1174 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <title>Princess Minette</title>
-  <!-- Required meta tags -->
+  <title>Happy Birthday Sara ✨</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-  <!-- fonts -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    :root {
+      --serif: "Cormorant Garamond", serif;
+      --sans: "Montserrat", sans-serif;
+      --primary: #1a1a1a;
+      --accent-gold: #d4af37;
+      --accent-rose: #e8b4b8;
+      --accent-cream: #faf8f3;
+      --accent-deep: #2d2d2d;
+      --white: #ffffff;
+      
+      /* Van Gogh Starry Night Palette */
+      --van-gogh-blue: #1e3a5f;
+      --van-gogh-navy: #0d1b2a;
+      --van-gogh-sky: #4a5f8c;
+      --van-gogh-yellow: #f4d03f;
+      --van-gogh-gold: #e8b923;
+      --van-gogh-cyan: #5b8fb9;
+      --van-gogh-swirl: #2d4a6e;
+    }
 
-  <!--cdncss link-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    body {
+      font-family: var(--sans);
+      background: var(--accent-cream);
+      color: var(--primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-  <link rel="stylesheet" href="css/lightbox.min.css">
+    /* Confetti Canvas */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-  <!--style sheet-->
-  <link rel="stylesheet" href="css/style.css">
+    /* Audio Control */
+    .audio-control {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--white);
+      border-radius: 50%;
+      border: 2px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
 
+    .audio-control:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(212, 175, 55, 0.3);
+    }
 
+    .audio-control svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #0d1b2a 0%, #1e3a5f 30%, #2d4a6e 60%, #4a5f8c 100%);
+      overflow: hidden;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #f4d03f;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #f4d03f, 0 0 12px rgba(244, 208, 63, 0.5);
+      animation: twinkle 4s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 15px #f4d03f, 0 0 25px rgba(244, 208, 63, 0.8); }
+    }
+
+    /* Van Gogh Swirls */
+    .van-gogh-swirls {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.15;
+      background: 
+        radial-gradient(ellipse 400px 200px at 20% 30%, rgba(91, 143, 185, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 500px 250px at 70% 60%, rgba(74, 95, 140, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse 300px 150px at 50% 80%, rgba(45, 74, 110, 0.4) 0%, transparent 50%);
+      animation: swirl 30s ease-in-out infinite;
+    }
+
+    @keyframes swirl {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(5deg) scale(1.05); }
+    }
+
+    .moon {
+      position: absolute;
+      top: 12%;
+      right: 10%;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fef5d4, #f4d03f, #e8b923);
+      box-shadow: 0 0 60px rgba(244, 208, 63, 0.6), 
+                  0 0 100px rgba(232, 185, 35, 0.4),
+                  0 0 140px rgba(244, 208, 63, 0.2),
+                  inset -10px -10px 40px rgba(0,0,0,0.1);
+      animation: moonFloat 8s ease-in-out infinite;
+    }
+
+    .moon::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.3), transparent);
+    }
+
+    @keyframes moonFloat {
+      0%, 100% { transform: translateY(0px) scale(1); box-shadow: 0 0 60px rgba(244, 208, 63, 0.6), 0 0 100px rgba(232, 185, 35, 0.4); }
+      50% { transform: translateY(-20px) scale(1.05); box-shadow: 0 0 80px rgba(244, 208, 63, 0.8), 0 0 120px rgba(232, 185, 35, 0.6); }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #f4d03f;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #f4d03f, 0 0 20px rgba(244, 208, 63, 0.8);
+    }
+
+    .shooting-star::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 3px;
+      height: 2px;
+      width: 100px;
+      background: linear-gradient(to right, #f4d03f, rgba(244, 208, 63, 0.5), transparent);
+    }
+
+    .shooting-star:nth-child(1) { top: 30%; right: 70%; animation: shoot1 3s ease-out infinite; }
+    .shooting-star:nth-child(2) { top: 50%; right: 40%; animation: shoot2 4s ease-out 2s infinite; }
+    .shooting-star:nth-child(3) { top: 70%; right: 80%; animation: shoot3 3.5s ease-out 4s infinite; }
+
+    @keyframes shoot1 {
+      0% { transform: translate(0,0) rotate(-45deg); opacity: 1; }
+      100% { transform: translate(-400px, 400px) rotate(-45deg); opacity: 0; }
+    }
+
+    @keyframes shoot2 {
+      0% { transform: translate(0,0) rotate(-40deg); opacity: 1; }
+      100% { transform: translate(-350px, 350px) rotate(-40deg); opacity: 0; }
+    }
+
+    @keyframes shoot3 {
+      0% { transform: translate(0,0) rotate(-50deg); opacity: 1; }
+      100% { transform: translate(-450px, 450px) rotate(-50deg); opacity: 0; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: var(--white);
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 12vw, 10rem);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .hero-subtitle {
+      font-family: var(--sans);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      animation: fadeInUp 1.2s ease-out 0.3s backwards;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    .scroll-indicator span {
+      color: var(--white);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      display: block;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--white), transparent);
+      margin: 0 auto;
+    }
+
+    /* Story Section */
+    .story-section {
+      position: relative;
+      padding: 120px 0;
+      background: var(--accent-cream);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .story-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .story-ornament {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .ornament-line {
+      display: inline-block;
+      width: 60px;
+      height: 1px;
+      background: var(--accent-gold);
+      margin: 0 20px;
+      vertical-align: middle;
+    }
+
+    .ornament-center {
+      display: inline-block;
+      font-size: 2rem;
+      color: var(--accent-gold);
+      vertical-align: middle;
+    }
+
+    .story-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 60px;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+    }
+
+    .story-content {
+      background: var(--white);
+      padding: 80px 60px;
+      border-radius: 0;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .story-content::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 40px;
+      right: 40px;
+      height: 4px;
+      background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+    }
+
+    .story-text p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.9;
+      color: var(--accent-deep);
+      margin-bottom: 1.8rem;
+      text-align: justify;
+    }
+
+    .story-text p:first-letter {
+      font-size: 4rem;
+      line-height: 1;
+      float: left;
+      margin: 0 10px 0 0;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .story-ending {
+      margin-top: 60px;
+      padding-top: 50px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      text-align: center;
+      position: relative;
+    }
+
+    .ending-ornament {
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+      margin-bottom: 30px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .ending-text {
+      font-family: var(--serif);
+      font-size: 1.4rem !important;
+      line-height: 1.9 !important;
+      color: var(--accent-gold) !important;
+      font-style: italic;
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto !important;
+      text-align: center !important;
+      padding: 0 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .ending-text::before,
+    .ending-text::after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--accent-rose);
+      opacity: 0.3;
+      font-family: var(--serif);
+      line-height: 0;
+    }
+
+    .ending-text::before {
+      margin-right: 10px;
+      vertical-align: -0.4em;
+    }
+
+    .ending-text::after {
+      margin-left: 10px;
+      vertical-align: -0.4em;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      padding: 120px 0;
+      background: linear-gradient(180deg, #1e3a5f 0%, #2d4a6e 50%, #1a2332 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse 600px 300px at 10% 20%, rgba(91, 143, 185, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 500px 250px at 90% 80%, rgba(74, 95, 140, 0.1) 0%, transparent 50%);
+      animation: swirl 40s ease-in-out infinite;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #f4d03f;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--accent-deep);
+    }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.8));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: grayscale(20%);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.15);
+      filter: grayscale(0%);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 25px 20px;
+      color: var(--white);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 3;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    /* Companions Section */
+    .companions-section {
+      padding: 120px 0;
+      background: var(--accent-cream);
+      position: relative;
+    }
+
+    .companions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .companion-card {
+      position: relative;
+      background: var(--white);
+      overflow: hidden;
+      transition: transform 0.4s ease;
+    }
+
+    .companion-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .companion-image {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .companion-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4));
+      z-index: 1;
+    }
+
+    .companion-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .companion-card:hover .companion-image img {
+      transform: scale(1.08);
+    }
+
+    .companion-info {
+      padding: 40px;
+      text-align: center;
+      background: var(--white);
+    }
+
+    .companion-type {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .companion-name {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+    }
+
+    .companion-breed {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* Wishes Section */
+    .wishes-section {
+      padding: 120px 0;
+      background: linear-gradient(180deg, #0d1b2a 0%, #1e3a5f 50%, #2d4a6e 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wishes-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse 700px 400px at 30% 40%, rgba(91, 143, 185, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 500px 300px at 80% 70%, rgba(74, 95, 140, 0.08) 0%, transparent 60%);
+      animation: swirl 50s ease-in-out infinite reverse;
+    }
+
+    .wishes-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .wishes-intro {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .wishes-intro p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    .wish-form {
+      background: rgba(30, 58, 95, 0.2);
+      padding: 50px;
+      border: 1px solid rgba(244, 208, 63, 0.2);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: #f4d03f;
+      font-weight: 500;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 18px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(244, 208, 63, 0.3);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-bottom-color: #f4d03f;
+      box-shadow: 0 1px 0 0 rgba(244, 208, 63, 0.3);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 150px;
+      font-family: var(--sans);
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, #f4d03f 0%, #e8b923 100%);
+      border: none;
+      color: #0d1b2a;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(244, 208, 63, 0.3);
+    }
+
+    .form-submit:hover {
+      background: linear-gradient(135deg, #fff4c4 0%, #f4d03f 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(244, 208, 63, 0.5), 0 0 40px rgba(244, 208, 63, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 60px 0;
+      background: #0a0e1a;
+      text-align: center;
+      color: rgba(244, 208, 63, 0.4);
+    }
+
+    .footer-ornament {
+      margin-bottom: 20px;
+    }
+
+    .footer-ornament .ornament-line {
+      background: rgba(244, 208, 63, 0.3);
+    }
+
+    .footer-ornament .ornament-center {
+      color: rgba(244, 208, 63, 0.5);
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+      }
+
+      .story-content {
+        padding: 50px 30px;
+      }
+
+      .story-text p {
+        font-size: 1.1rem;
+        text-align: left;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .companions-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .companion-image {
+        height: 400px;
+      }
+
+      .wish-form {
+        padding: 30px 20px;
+      }
+
+      .moon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .audio-control {
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    /* Fade in animation for sections */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body>
-  <audio autoplay>
+  <canvas id="confetti-canvas"></canvas>
+  
+  <audio id="bg-music" loop>
     <source src="audios/audio.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-  <section>
-    <div class="container">
-      <div class="banner rounded-4 p-5"
-        style="background-image: url(images/main.png); background-size: cover ; background-repeat: no-repeat; background-position: center;">
-        <div class="text-content text-white py-5 my-5">
-          <h1 class="display-1">
-            HBD <br> Sara! 
-          </h1>
-        </div>
-      </div>
-    </div>
-  </section>
+  </audio>
+  
+  <button class="audio-control" id="audio-btn">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+    </svg>
+  </button>
 
-  <section class="p-5 bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card shadow-lg border-0 rounded-4">
-            <div class="card-body p-5">
-              <h2 class="card-title text-center mb-4">A Fairytale Evening</h2>
-              <p class="card-text text-justify" style="white-space: pre-wrap; line-height: 1.8;">
-                Once, within those star- and destiny-filled fields, where fate keeps interlinking life paths in the most unimagined way, I found Sara. It was during a wedding of a friend, full of color, light, and music, where every hue danced together in a thousand shades. In that ocular treat, she was sitting—mysterious, yet shining; carrying an entire world within her, an intensity that silently breathed to which my gaze would naturally flow.
-  
-                It felt like a nonevent, as if we had known each other all our lives. Sure enough, our eyes met across the terrace, and in that instant, something silent passed between us. Her laughter was warm, embers glowing in soft light; her smile open in a way I secretly felt was rare (jerry smile w pressure cooker laugh). I told her my name, and then we were moving under the stars, sharing little pieces of our worlds.
-  
-              Sara had a story unlike any other. She was born away, in the middle of warm days melting into serene evenings. Simple, her early life wasn't, from dealing with monsters unseen knocking on doors at night to the seen ones who roamed around her house freely, and it shaped her in ways she was still discovering. At the age of fourteen after a tiresome battle with herself she moved, leaving behind mother and life that wasn't one to be admired. There her father waited for her: strange in many ways, at the same time a tie to the person she was becoming.
-  
-                It was hard for Sara to settle into this. This new home had unfamiliar rhythms and sounds, and something she thought she left behind waited in another horrifying form for her there.A rocky relationship with father as they clashed fiercely over their stubborn adherence to thoughts.
-  
-                But even in the storms, something of her was breaking through. She was quiet, a force so often found unto herself, though not often in class, she was known for her mind, her quiet brilliance and her wit.
-  
-                What then caught my attention was her compassion: the deep love for animals, mainly the two cats that had kept her company. Rather, many other strays would also appear to cling to her, and she often went out, even at the break of dawn, just to feed them. She was like a protector of small and forgotten things and the things that didn't have hope left, an embodiment of acts of kindness. She laughed as she told me of her quirks: how she puts on one sock, then one shoe, before repeating with the other; her dislike of raisins. We shared a love of simple pleasures: tea and eggs. She told me cooking was her art, and I could almost imagine the meals she was describing (noodles and some more noodles).
-  
-                In that instant, I knew this was one of those women who could find beauty in everything, even the mundane, and spread that beauty wherever she went.Her ability to see the good in people but not herself baffled me the most.
-  
-                Days could be filled with busy work around the house, things many people wouldn't even think to do or would leave for someone else to do. She could handle anything that came her way,from ikea furniture to installing floor tiles, unafraid to tackle anything that needed to be done. Sara was resilient, deeply caring, with a strength that made her an unwavering force. And as we parted that night, she made me a better person as she colored me in her color because I found myself falling in love with cats, doing weird pronunciations . I clutched it as if for a token, a reminder of her—a girl with silent strength that had turned even her story into something beautiful and feral. And it is many years afterward, with that first evening, whenever the sight of a stray catches my eye or the fragrance of newly brewed coffee wafts into my nostrils, I am reminded of her. She'd been a fairytale sprung to life, a narrative that made the world for me feel richer, kinder, and endlessly more loving and bearable.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-<section class="portfolio py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6 py-5" data-aos="fade-up">
-        <div class="section-header text-center">
-          <h4 class="fw-bold fs-2 txt-fx slide-up">
-            Some of the Most Cherished Times
-          </h4>
-        </div>
-      </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="van-gogh-swirls"></div>
+    <div class="stars" id="stars-container"></div>
+    <div class="moon"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    
+    <div class="hero-content">
+      <h1 class="hero-title">HBD<br>Sara</h1>
+      <p class="hero-subtitle">Under The Stars</p>
     </div>
     
-    <div class="row g-4" data-aos="fade-up">
-      <!-- Portfolio Grid -->
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem1.png" class="img-fluid rounded-4 bg-dark" alt="Packages mall memory" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Packages mall she bought me my favorite balloon.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem2.jpg" class="img-fluid rounded-4 bg-dark" alt="Gloria suitcase memory" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Getting rocks out of her suitcase at Gloria after traveling for 18+ hours.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem3.jpg" class="img-fluid rounded-4 bg-dark" alt="Fluff handcuffs memory" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Fluff handcuffs the day she was going back.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem4.png" class="img-fluid rounded-4 bg-dark" alt="Blowing bubbles" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Blowing bubbles on video call.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem5.png" class="img-fluid rounded-4 bg-dark" alt="Smol hands hehehe" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Smol hands hehehe.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem6.png" class="img-fluid rounded-4 bg-dark" alt="Smol hands again" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Smol hands again hihihi.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem14.png" class="img-fluid rounded-4 bg-dark" alt="Her bedside angry octopus" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Her bedside angry octopus.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem8.jpg" class="img-fluid rounded-4 bg-dark" alt="Who's cuter memory" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Confusion on who's cuter.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem9.jpg" class="img-fluid rounded-4 bg-dark" alt="Ordering coffee memory" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Ordering coffee for us because I’m dumb.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem15.jpg" class="img-fluid rounded-4 bg-dark" alt="Ah Mr. Blue" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Ah, Mr. Blue.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem12.jpg" class="img-fluid rounded-4 bg-dark" alt="Royal Porn Emporium" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">Royal Porn Emporium, first time I enjoyed corn.</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 portfolio-item">
-        <div class="position-relative text-center">
-          <img src="images/mem11.jpg" class="img-fluid rounded-4 bg-dark" alt="Live music memory" style="aspect-ratio: 1/1; object-fit: cover; background-color: black;">
-          <div class="text-muted mt-2">First time I listened to live music with her.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-  <section class="py-5">
-    <div class="container">
-      <div class="text-center">
-        <h2 class="display-3">
-          Honorable Mention of Her Companions
-        </h2>
-        <p>
-          Princess's most trusted and loyal.
-        </p>
-      </div>
-      <div class="row py-4">
-        <div class="col-lg-6 p-3">
-          <div class="post-item p-3 border rounded-5">
-            <div class="row g-md-5">
-              <div class="col-lg-5">
-                <img src="images/maxx.jpg" class="img-fluid rounded-4">
-              </div>
-              <div class="col-lg-7">
-                <p class="text-uppercase text-muted mt-3">
-                  Cat
-                </p>
-                <h3>
-                  Mr.Max
-                </h3>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 p-3">
-          <div class="post-item p-3 border rounded-5">
-            <div class="row g-md-5">
-              <div class="col-lg-5">
-                <img src="images/milo.jpg" class="img-fluid rounded-4">
-              </div>
-              <div class="col-lg-7">
-                <p class="text-uppercase text-muted mt-3">
-                  cat
-                </p>
-                <h3>
-                  Ms.Milo
-                </h3>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <section class="p-5 bg-yellow py-5">
+  <!-- Story -->
+  <section class="story-section fade-in">
     <div class="container">
-      <div class="row justify-content-center my-5">
-        <div class="col-md-5">
-          <h2 class="display-3">
-            Leave a Birthday wish
-          </h2>
-          <p>
-            Princess might be busy eating cerelac or shovelling her companions' excrement, ADHD might also play a role
-            in replying late.
-          </p>
+      <div class="story-wrapper">
+        <div class="story-ornament">
+          <span class="ornament-line"></span>
+          <span class="ornament-center">✦</span>
+          <span class="ornament-line"></span>
         </div>
-        <div class="col-md-5">
-          <div class="mb-3">
-            <input type="name" class="form-control p-3 rounded-4" name="name" id="name" aria-describedby="nameHelpId"
-              placeholder="your name" />
+        
+        <h2 class="story-title">A Fairytale Evening</h2>
+        
+        <div class="story-content">
+          <div class="story-text">
+            <p>Once, within those star- and destiny-filled fields, where fate keeps interlinking life paths in the most unimagined way, I found Sara. It was during a wedding of a friend, full of color, light, and music, where every hue danced together in a thousand shades. In that ocular treat, she was sitting—mysterious, yet shining; carrying an entire world within her, an intensity that silently breathed to which my gaze would naturally flow.</p>
+            
+            <p>It felt like a nonevent, as if we had known each other all our lives. Sure enough, our eyes met across the terrace, and in that instant, something silent passed between us. Her laughter was warm, embers glowing in soft light; her smile open in a way I secretly felt was rare (jerry smile w pressure cooker laugh). I told her my name, and then we were moving under the stars, sharing little pieces of our worlds.</p>
+            
+            <p>Sara had a story unlike any other. She was born away, in the middle of warm days melting into serene evenings. Simple, her early life wasn't, from dealing with monsters unseen knocking on doors at night to the seen ones who roamed around her house freely, and it shaped her in ways she was still discovering. At the age of fourteen after a tiresome battle with herself she moved, leaving behind mother and life that wasn't one to be admired. There her father waited for her: strange in many ways, at the same time a tie to the person she was becoming.</p>
+            
+            <p>It was hard for Sara to settle into this. This new home had unfamiliar rhythms and sounds, and something she thought she left behind waited in another horrifying form for her there. A rocky relationship with father as they clashed fiercely over their stubborn adherence to thoughts.</p>
+            
+            <p>But even in the storms, something of her was breaking through. She was quiet, a force so often found unto herself, though not often in class, she was known for her mind, her quiet brilliance and her wit.</p>
+            
+            <p>What then caught my attention was her compassion: the deep love for animals, mainly the two cats that had kept her company. Rather, many other strays would also appear to cling to her, and she often went out, even at the break of dawn, just to feed them. She was like a protector of small and forgotten things and the things that didn't have hope left, an embodiment of acts of kindness. She laughed as she told me of her quirks: how she puts on one sock, then one shoe, before repeating with the other; her dislike of raisins. We shared a love of simple pleasures: tea and eggs. She told me cooking was her art, and I could almost imagine the meals she was describing (noodles and some more noodles).</p>
+            
+            <p>In that instant, I knew this was one of those women who could find beauty in everything, even the mundane, and spread that beauty wherever she went. Her ability to see the good in people but not herself baffled me the most.</p>
+            
+            <p>Days could be filled with busy work around the house, things many people wouldn't even think to do or would leave for someone else to do. She could handle anything that came her way, from ikea furniture to installing floor tiles, unafraid to tackle anything that needed to be done. Sara was resilient, deeply caring, with a strength that made her an unwavering force. And as we parted that night, she made me a better person as she colored me in her color because I found myself falling in love with cats, doing weird pronunciations. I clutched it as if for a token, a reminder of her—a girl with silent strength that had turned even her story into something beautiful and feral. And it is many years afterward, with that first evening, whenever the sight of a stray catches my eye or the fragrance of newly brewed coffee wafts into my nostrils, I am reminded of her. She'd been a fairytale sprung to life, a narrative that made the world for me feel richer, kinder, and endlessly more loving and bearable.</p>
           </div>
-          <div class="mb-3">
-            <input type="email" class="form-control p-3 rounded-4" name="email" id="email"
-              aria-describedby="emailHelpId" placeholder="your email" />
-          </div>
-          <div class="mb-3">
-            <textarea class="form-control p-3 rounded-4" name="your message" placeholder="your message" id="message"
-              rows="3"></textarea>
-          </div>
-          <div class="d-grid">
-            <button type="button" class="btn btn-dark btn-lg text-uppercase rounded-4">
-              Submit
-            </button>
+          
+          <div class="story-ending">
+            <p class="ending-text">And now, when the nights grow still, I find myself searching for traces of you in the hum of the city, in the hush between heartbeats. I don't know if fate ever finishes its weaving, but somewhere in its threads, I still find your name....</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer id="footer" class="bg-black text-white py-5">
+  <!-- Gallery -->
+  <section class="gallery-section fade-in">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Memories</div>
+        <h2 class="section-title">Some of the Most Cherished Times</h2>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/mem1.png" alt="Memory">
+          <div class="gallery-caption">Packages mall she bought me my favorite balloon.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem2.jpg" alt="Memory">
+          <div class="gallery-caption">Getting rocks out of her suitcase at Gloria after traveling for 18+ hours.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem3.jpg" alt="Memory">
+          <div class="gallery-caption">Fluff handcuffs the day she was going back.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem4.png" alt="Memory">
+          <div class="gallery-caption">Blowing bubbles on video call.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem5.png" alt="Memory">
+          <div class="gallery-caption">Smol hands hehehe.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem6.png" alt="Memory">
+          <div class="gallery-caption">Smol hands again hihihi.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem14.png" alt="Memory">
+          <div class="gallery-caption">Her bedside angry octopus.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem8.jpg" alt="Memory">
+          <div class="gallery-caption">Confusion on who's cuter.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem9.jpg" alt="Memory">
+          <div class="gallery-caption">Ordering coffee for us because I'm dumb.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem15.jpg" alt="Memory">
+          <div class="gallery-caption">Ah, Mr. Blue.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem12.jpg" alt="Memory">
+          <div class="gallery-caption">Royal Porn Emporium, first time I enjoyed corn.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/mem11.jpg" alt="Memory">
+          <div class="gallery-caption">First time I listened to live music with her.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Companions -->
+  <section class="companions-section fade-in">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" style="color: var(--accent-gold);">Companions</div>
+        <h2 class="section-title" style="color: var(--primary);">Honorable Mention of Her Companions</h2>
+        <p style="color: #666; margin-top: 20px;">Princess's most trusted and loyal.</p>
+      </div>
+      
+      <div class="companions-grid">
+        <div class="companion-card">
+          <div class="companion-image">
+            <img src="images/maxx.jpg" alt="Mr. Max">
+          </div>
+          <div class="companion-info">
+            <div class="companion-type">Feline</div>
+            <h3 class="companion-name">Mr. Max</h3>
+            <p class="companion-breed">Tuxedo Cat</p>
+          </div>
+        </div>
+        
+        <div class="companion-card">
+          <div class="companion-image">
+            <img src="images/milo.jpg" alt="Ms. Milo">
+          </div>
+          <div class="companion-info">
+            <div class="companion-type">Feline</div>
+            <h3 class="companion-name">Ms. Milo</h3>
+            <p class="companion-breed">Tuxedo Cat</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wishes Form -->
+  <section class="wishes-section fade-in">
+    <div class="container">
+      <div class="wishes-container">
+        <div class="wishes-intro">
+          <div class="section-label">Birthday Wishes</div>
+          <h2 class="section-title">Leave a Birthday Wish</h2>
+          <p>Princess might be busy eating cerelac or shovelling her companions' excrement, ADHD might also play a role in replying late.</p>
+        </div>
+        
+        <form class="wish-form" id="wish-form">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Your Email</label>
+            <input type="email" class="form-input" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Your Message</label>
+            <textarea class="form-textarea" placeholder="Write your birthday wish..." required></textarea>
+          </div>
+          
+          <button type="submit" class="form-submit">Send Wishes</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-ornament">
+      <span class="ornament-line"></span>
+      <span class="ornament-center">✦</span>
+      <span class="ornament-line"></span>
+    </div>
+    <p>Made with Love</p>
   </footer>
 
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="js/jquery-1.11.0.min.js"></script> <!-- jquery file-->
+  <script>
+    // Generate stars
+    const starsContainer = document.getElementById('stars-container');
+    for (let i = 0; i < 200; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 4 + 's';
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      starsContainer.appendChild(star);
+    }
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
+    // Confetti
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-    crossorigin="anonymous"></script>
+    const confettiPieces = [];
+    const confettiColors = ['#d4af37', '#e8b4b8', '#fff', '#1a1a1a'];
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> <!--cdn link-->
-  <script src="js/plugins.js"></script>
-  <script type="text/javascript" src="js/lightbox.min.js"></script>
+    class Confetti {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height - canvas.height;
+        this.size = Math.random() * 6 + 4;
+        this.speedY = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = Math.random() * 5 - 2.5;
+      }
 
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-  <script src="js/script.js"></script>
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.rotation += this.rotationSpeed;
+        if (this.y > canvas.height) {
+          this.y = -10;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation * Math.PI / 180);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < 120; i++) {
+      confettiPieces.push(new Confetti());
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettiPieces.forEach(piece => {
+        piece.update();
+        piece.draw();
+      });
+      requestAnimationFrame(animateConfetti);
+    }
+
+    animateConfetti();
+
+    setTimeout(() => {
+      canvas.style.transition = 'opacity 2s';
+      canvas.style.opacity = '0';
+      setTimeout(() => canvas.remove(), 2000);
+    }, 12000);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Audio control
+    const audio = document.getElementById('bg-music');
+    const audioBtn = document.getElementById('audio-btn');
+    let isPlaying = false;
+
+    audioBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        audioBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
+      } else {
+        audio.play();
+        audioBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Auto-play on first interaction
+    document.addEventListener('click', function playAudio() {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          audioBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+        }).catch(() => {});
+      }
+      document.removeEventListener('click', playAudio);
+    });
+
+    // Scroll animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Form submission
+    document.getElementById('wish-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const originalText = btn.textContent;
+      
+      btn.textContent = 'Wish Sent ✨';
+      btn.style.background = 'linear-gradient(135deg, #fff4c4 0%, #f4d03f 100%)';
+      btn.style.color = '#0d1b2a';
+      
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = 'linear-gradient(135deg, #f4d03f 0%, #e8b923 100%)';
+        btn.style.color = '#0d1b2a';
+        e.target.reset();
+      }, 3000);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
-
 </html>
